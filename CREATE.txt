@@ -1,0 +1,83 @@
+/* COMANDO USADO PARA A CRIAÇÃO DE OBJETOS */
+/* ; NÃO SÃO NECESSÁRIOS NO SQL SERVER, APENAS NO MYSQL*/
+
+
+/* SQL SERVER E MYSQL*/
+CREATE DATABASE  nomeBanco;
+
+
+/* SQL SERVER E MYSQL*/
+CREATE TABLE nomeTabela(/* atributos para a tabela separados por vírgulas*/);
+
+
+/* SQL SERVER E MYSQL*/
+CREATE VIEW nomeView AS SELECT * FROM nomeTabela WHERE condicao;
+
+SELECT * FROM nomeView;
+
+
+/* SQL SERVER */
+
+CREATE PROCEDURE nomeProcedure 
+
+/* Criação de parâmetros se necessário */
+@Parametro1 INT,
+@Parametro2 VARCHAR(XXX)
+
+AS
+BEGIN
+
+/*OPERAÇÃO NECESSÁRIA PARA A EXECUÇÃO DA PROCEDURE*/
+
+/* DECLARAÇÃO DE VARIÁVEIS */
+DECLARE @Variavel INT;
+SET @Variavel = 10;
+
+END
+
+/* EXECUTANDO A PROCEDURE*/
+
+EXEC nomeProcedure @chamarParametro1= valor, @chamarParametro2=valor
+
+
+/* MYSQL */
+
+DELIMITER //
+
+CREATE PROCEDURE MinhaProcedure(IN Parametro1 INT, IN Parametro2 VARCHAR(50))
+BEGIN
+
+/*OPERAÇÃO NECESSÁRIA PARA A EXECUÇÃO DA PROCEDURE*/
+
+/* DECLARAÇÃO DE VARIÁVEIS */
+DECLARE Variavel INT;
+SET Variavel = 10;	
+END;
+
+//
+DELIMITER ;
+
+CALL (chamarParametro1, chamarParametro2);
+
+
+
+/* SQL SERVER*/
+
+CREATE TRIGGER NomeDaTrigger
+ON NomeDaTabela
+AFTER INSERT, UPDATE, DELETE  -- Eventos que disparam a trigger
+AS
+BEGIN
+    -- Lógica da Trigger
+END;
+
+
+/*MYSQL */
+
+CREATE TRIGGER NomeDaTrigger
+AFTER INSERT, UPDATE, DELETE  -- Eventos que disparam a trigger
+ON NomeDaTabela FOR EACH ROW
+BEGIN
+    -- Lógica da Trigger
+END;
+
